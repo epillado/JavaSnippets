@@ -1,7 +1,6 @@
 package org.example;
 
 import java.util.Optional;
-import java.util.Random;
 
 public class PlayingOptionals {
 
@@ -39,10 +38,17 @@ public class PlayingOptionals {
          is executed */
         Optional<Integer> receivedCandy = Optional.empty();
         int candy = receivedCandy.orElseGet(()-> {
-            System.out.println("Throwing things.");
+            System.out.println("Graffiting your fence.");
             return -1;
         });
 
+        /* If you didn't have enough, we'll throw things (exceptions) */
+        try {
+            candy = receivedCandy.orElseThrow();
+        } catch (Exception e) {
+            System.out.println("Splat!");;
+        }
+        
     }
 
 }
